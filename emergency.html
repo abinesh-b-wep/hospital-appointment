@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Emergency - CareConnect+</title>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
+  <style>
+    body {
+      margin: 0;
+      font-family: 'Inter', sans-serif;
+      background: linear-gradient(135deg, #ff4e50, #1f1c2c, #f9d423);
+      background-size: 400% 400%;
+      animation: backgroundShift 10s ease infinite;
+      color: white;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      min-height: 100vh;
+      padding: 30px;
+      text-align: center;
+    }
+
+    @keyframes backgroundShift {
+      0% { background-position: 0% 50%; }
+      50% { background-position: 100% 50%; }
+      100% { background-position: 0% 50%; }
+    }
+
+    h1 {
+      font-size: 2.5rem;
+      margin-bottom: 20px;
+    }
+
+    .emergency-buttons {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+      gap: 20px;
+      width: 100%;
+      max-width: 800px;
+    }
+
+    .button {
+      background-color: rgba(255, 255, 255, 0.1);
+      border: 2px solid #fff;
+      border-radius: 16px;
+      padding: 20px;
+      font-size: 1.2rem;
+      color: white;
+      font-weight: 600;
+      cursor: pointer;
+      transition: all 0.3s ease;
+    }
+
+    .button:hover {
+      background-color: #ff4e50;
+      transform: translateY(-5px);
+    }
+
+    .button span {
+      font-size: 2rem;
+      display: block;
+      margin-bottom: 10px;
+    }
+
+    .back-link {
+      margin-top: 40px;
+      text-decoration: none;
+      color: #eee;
+      font-size: 1rem;
+      display: inline-block;
+      border-bottom: 1px solid transparent;
+      transition: border-bottom 0.3s ease;
+    }
+
+    .back-link:hover {
+      border-bottom: 1px solid #eee;
+    }
+  </style>
+</head>
+<body>
+  <h1>🚨 Emergency Assistance</h1>
+
+  <div class="emergency-buttons">
+    <div class="button" onclick="callNumber('108')">
+      <span>🚑</span>
+      Call Ambulance (108)
+    </div>
+    <div class="button" onclick="callNumber('100')">
+      <span>👮‍♂️</span>
+      Call Police (100)
+    </div>
+    <div class="button" onclick="callNumber('102')">
+      <span>🩺</span>
+      Medical Help Line (102)
+    </div>
+    <div class="button" onclick="callNumber('112')">
+      <span>📞</span>
+      Universal Emergency (112)
+    </div>
+  </div>
+
+  <a class="back-link" href="index.html">← Back to Home</a>
+
+  <script>
+    function callNumber(number) {
+      window.location.href = `tel:${number}`;
+    }
+  </script>
+</body>
+</html>

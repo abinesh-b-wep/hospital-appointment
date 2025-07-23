@@ -1,0 +1,206 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>CareConnect+ Hospital App</title>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      font-family: 'Inter', sans-serif;
+    }
+
+    body {
+      background: #f4f9ff;
+      color: #333;
+      line-height: 1.6;
+    }
+
+    /* Header Styling */
+    .app-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 25px 10%;
+      background: none;
+      box-shadow: none;
+      font-size: 1.05rem;
+    }
+
+    .logo {
+      font-size: 1.8rem;
+      font-weight: 700;
+      color: #000;
+    }
+
+    .nav-links a {
+      margin-left: 25px;
+      text-decoration: none;
+      color: #000;
+      font-weight: 500;
+      transition: color 0.3s ease;
+    }
+
+    .nav-links a:hover {
+      color: #007BFF;
+    }
+
+    .tiles {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 25px;
+      padding: 50px 10%;
+    }
+
+    .tile {
+      padding: 30px;
+      border-radius: 16px;
+      text-align: center;
+      color: #060606;
+      transition: transform 0.3s ease, box-shadow 0.3s ease, scale 0.3s ease;
+      box-shadow: 0 6px 12px rgba(0, 0, 0, 0.08);
+      cursor: pointer;
+      position: relative;
+      font-size: 1.3rem;
+    }
+
+    .tile:active {
+      transform: scale(1.1);
+    }
+
+    .tile-message {
+      margin-top: 15px;
+      font-size: 0.95rem;
+      background-color: rgba(241, 236, 236, 0.9);
+      color: #333;
+      padding: 8px;
+      border-radius: 8px;
+      position: absolute;
+      left: 50%;
+      transform: translateX(-50%);
+      bottom: -60px;
+      opacity: 0;
+      transition: opacity 0.3s ease;
+      pointer-events: none;
+      width: 90%;
+    }
+
+    .tile.show-message .tile-message {
+      opacity: 1;
+    }
+
+    .tile:nth-child(1) {
+      background: linear-gradient(135deg, #83868a, #fcfefe);
+    }
+
+    .tile:nth-child(2),
+    .tile:nth-child(3),
+    .tile:nth-child(4),
+    .tile:nth-child(5),
+    .tile:nth-child(6) {
+      background: linear-gradient(135deg, #b0b8b3, #f3f7f6);
+    }
+
+    .tile:hover {
+      transform: translateY(-6px);
+      box-shadow: 0 12px 20px rgba(0, 0, 0, 0.15);
+    }
+
+    .tile h3 {
+      margin: 10px 0 5px;
+      font-size: 1.4rem;
+    }
+
+    .tile h3::before {
+      display: block;
+      font-size: 2.2rem;
+      margin-bottom: 10px;
+    }
+
+    .footer {
+      padding: 40px 10%;
+      background-color: #003366;
+      color: white;
+      text-align: center;
+    }
+
+    .footer a {
+      color: #99ccff;
+      margin: 0 10px;
+      text-decoration: none;
+    }
+  </style>
+</head>
+<body>
+
+  <!-- New Header -->
+  <header class="app-header">
+    <div class="logo">CareConnect+</div>
+    <nav class="nav-links">
+      <a href="#">Home</a>
+      <a href="#">Appointment</a>
+      <a href="#">Contact</a>
+      <a href="#">About Us</a>
+    </nav>
+  </header>
+
+  <!-- Tiles Section -->
+  <section class="tiles">
+    <div class="tile" onclick="showMessage(this, 'Loading nearby hospitals...')">
+      <h3>🏥 Find Hospital</h3>
+      <p>Locate nearby hospitals using GPS</p>
+      <div class="tile-message">Loading nearby hospitals...</div>
+    </div>
+    <div class="tile" onclick="showMessage(this, 'Fetching your doctor list...')">
+      <h3>👨‍⚕ My Doctors</h3>
+      <p>View your personal doctor team</p>
+      <div class="tile-message">Fetching your doctor list...</div>
+    </div>
+    <div class="tile" onclick="showMessage(this, 'Opening your appointments...')">
+      <h3>📅 My Appointments</h3>
+      <p>Manage and schedule visits</p>
+      <div class="tile-message">Opening your appointments...</div>
+    </div>
+    <div class="tile" onclick="showMessage(this, 'Loading pharmacy items...')">
+      <h3>💊 Pharmacy</h3>
+      <p>Order medicines easily</p>
+      <div class="tile-message">Loading pharmacy items...</div>
+    </div>
+    <div class="tile" onclick="showMessage(this, 'Calling emergency services...')">
+      <h3>🚨 Emergency</h3>
+      <p>One-tap ambulance or ER call</p>
+      <div class="tile-message">Calling emergency services...</div>
+    </div>
+    <div class="tile" onclick="showMessage(this, 'Accessing your health records...')">
+      <h3>📁 My Records</h3>
+      <p>Access test results securely</p>
+      <div class="tile-message">Accessing your health records...</div>
+    </div>
+  </section>
+
+  <footer class="footer">
+    <h3>CareConnect+ © 2025</h3>
+    <p>
+      <a href="#">About Us</a> |
+      <a href="#">Contact</a> |
+      <a href="#">Privacy</a> |
+      <a href="#">Terms</a>
+    </p>
+    <p>Follow us: 🔵 🔴 🟣</p>
+  </footer>
+
+  <script>
+    function showMessage(tile, message) {
+      const msgBox = tile.querySelector('.tile-message');
+      msgBox.textContent = message;
+      tile.classList.add('show-message');
+      setTimeout(() => {
+        tile.classList.remove('show-message');
+      }, 2000);
+    }
+  </script>
+</body>
+</html>

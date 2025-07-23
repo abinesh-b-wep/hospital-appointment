@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Find Hospital - CareConnect+</title>
+  <style>
+    body {
+      font-family: 'Inter', sans-serif;
+      background-color: #f0f8ff;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      min-height: 100vh;
+      text-align: center;
+      padding: 20px;
+    }
+
+    h1 {
+      font-size: 2rem;
+      color: #003366;
+      margin-bottom: 20px;
+    }
+
+    button {
+      background-color: #007BFF;
+      color: white;
+      border: none;
+      padding: 12px 24px;
+      font-size: 1rem;
+      border-radius: 8px;
+      cursor: pointer;
+    }
+
+    button:hover {
+      background-color: #0056b3;
+    }
+
+    #status {
+      margin-top: 20px;
+      font-size: 1rem;
+      color: #333;
+    }
+  </style>
+</head>
+<body>
+
+  <h1>Find Nearby Hospitals</h1>
+  <button onclick="findMyLocation()">📍 Find My Location</button>
+  <p id="status"></p>
+
+  <script>
+    function findMyLocation() {
+      const status = document.getElementById('status');
+
+      if (!navigator.geolocation) {
+        status.textContent = 'Geolocation is not supported by your browser.';
+        return;
+      }
+
+      status.textContent = 'Locating...';
+
+      navigator.geolocation.getCurrentPosition(
+        (position) => {
+          const lat = position.coords.latitude;
+          const lon = position.coords.longitude;
+          const url = https://www.google.com/maps/search/hospitals/@${lat},${lon},15z;
+
+          status.textContent = 'Location found. Opening Google Maps...';
+          window.open(url, '_blank');
+        },
+        (error) => {
+          switch (error.code) {
+            case error.PERMISSION_DENIED:
+              status.textContent = 'Permission denied. Please allow location access.';
+              break;
+            case error.POSITION_UNAVAILABLE:
+              status.textContent = 'Location information is unavailable.';
+              break;
+            case error.TIMEOUT:
+              status.textContent = 'Location request timed out.';
+              break;
+            default:
+              status.textContent = 'An unknown error occurred.';
+              break;
+          }
+        }
+      );
+    }
+  </script>
+
+</body>
+</html>

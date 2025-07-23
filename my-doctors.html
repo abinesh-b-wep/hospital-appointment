@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>My Doctors - CareConnect+</title>
+  <style>
+    body {
+      font-family: 'Inter', sans-serif;
+      background-color: #f9fcff;
+      margin: 0;
+      padding: 20px;
+    }
+
+    h1 {
+      text-align: center;
+      color: #003366;
+      margin-bottom: 30px;
+    }
+
+    .doctor-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+      gap: 20px;
+      padding: 0 10%;
+    }
+
+    .doctor-card {
+      background: #ffffff;
+      border-radius: 16px;
+      box-shadow: 0 6px 12px rgba(0, 0, 0, 0.1);
+      padding: 20px;
+      text-align: center;
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+    }
+
+    .doctor-card:hover {
+      transform: translateY(-6px);
+      box-shadow: 0 12px 20px rgba(0, 0, 0, 0.15);
+    }
+
+    .doctor-image {
+      width: 90px;
+      height: 90px;
+      border-radius: 50%;
+      object-fit: cover;
+      margin-bottom: 15px;
+      border: 3px solid #007BFF;
+    }
+
+    .doctor-name {
+      font-size: 1.2rem;
+      font-weight: 600;
+      color: #003366;
+      margin-bottom: 5px;
+    }
+
+    .doctor-specialty {
+      font-size: 1rem;
+      color: #555;
+      margin-bottom: 10px;
+    }
+
+    .contact-btn {
+      padding: 8px 16px;
+      background-color: #007BFF;
+      color: white;
+      border: none;
+      border-radius: 6px;
+      font-size: 0.9rem;
+      cursor: pointer;
+    }
+
+    .contact-btn:hover {
+      background-color: #0056b3;
+    }
+  </style>
+</head>
+<body>
+
+  <h1>👨‍⚕ My Doctor Team</h1>
+
+  <div class="doctor-grid">
+    <div class="doctor-card">
+      <img src="doctor1.jpg" alt="Dr. Smith" class="doctor-image">
+      <div class="doctor-name">Dr. John Smith</div>
+      <div class="doctor-specialty">Cardiologist</div>
+      <button class="contact-btn">Contact</button>
+    </div>
+
+    <div class="doctor-card">
+      <img src="doctor2.jpg" alt="Dr. Patel" class="doctor-image">
+      <div class="doctor-name">Dr. Anjali Patel</div>
+      <div class="doctor-specialty">Pediatrician</div>
+      <button class="contact-btn">Contact</button>
+    </div>
+
+    <div class="doctor-card">
+      <img src="doctor3.jpg" alt="Dr. Lee" class="doctor-image">
+      <div class="doctor-name">Dr. Kevin Lee</div>
+      <div class="doctor-specialty">Orthopedic Surgeon</div>
+      <button class="contact-btn">Contact</button>
+    </div>
+  </div>
+
+</body>
+</html>

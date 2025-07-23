@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Book Appointment</title>
+  
+  <!-- Google Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter&display=swap" rel="stylesheet">
+
+  <!-- External CSS -->
+  <link rel="stylesheet" href="app.css">
+</head>
+<body>
+  <div class="container">
+    <h1><a href="appointments.html">eDoc</a></h1>
+    <h1>Book your Appointment</h1>
+
+    <!-- Input Fields -->
+    <div class="input-container">
+      <input type="text" id="name" placeholder="Name" />
+      <input type="email" id="email" placeholder="Email" />
+      <input type="number" id="number" placeholder="Phone Number" pattern="[0-9]{10}" />
+      <input type="number" id="age" placeholder="Age" />
+      <input type="text" id="risk" placeholder="Health Problem" />
+    </div>
+
+    <!-- Button to Add Appointment -->
+    <button class="button" type="button" id="submit" onclick="addAppointment()">Book Appointment</button>
+
+    <!-- Search Bar -->
+    <input class="search" type="text" id="search" onkeyup="search()" placeholder="Search by Name, Email or Risk" />
+
+    <!-- Appointment Table -->
+    <table class="table" id="table">
+      <thead>
+        <tr>
+          <th>ID</th>
+          <th>Name</th>
+          <th>Email</th>
+          <th>Age</th>
+          <th>Phone Number</th>
+          <th>Health Risk</th>
+        </tr>
+      </thead>
+      <tbody id="tbody">
+        <!-- Appointment entries will appear here -->
+      </tbody>
+    </table>
+  </div>
+
+  <!-- External JS -->
+  <script src="app.js"></script>
+</body>
+</html>

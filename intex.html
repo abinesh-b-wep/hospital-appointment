@@ -1,0 +1,157 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>CareConnect+ Hospital App</title>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      font-family: 'Inter', sans-serif;
+    }
+
+    body {
+      margin: 0;
+      padding: 0;
+      color: white;
+      text-align: center;
+      overflow-x: hidden;
+      background: linear-gradient(135deg, #54a550, black, #f6f3f2, #f6230b, blue);
+      background-size: 400% 400%;
+      animation: gradientBackground 10s ease infinite;
+      line-height: 1.6;
+    }
+
+    @keyframes gradientBackground {
+      0% {
+        background-position: 0% 50%;
+      }
+      50% {
+        background-position: 100% 50%;
+      }
+      100% {
+        background-position: 0% 50%;
+      }
+    }
+
+    .header-box {
+      margin: 30px 10%;
+      padding: 20px 30px;
+      border: 1px solid #ccc;
+      border-radius: 16px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      background: rgba(0, 0, 0, 0.6);
+    }
+
+    .header-box .logo {
+      font-size: 1.8rem;
+      font-weight: 700;
+      color: #fff;
+    }
+
+    .header-box .nav-links a {
+      margin-left: 20px;
+      text-decoration: none;
+      color: #f8f2f2;
+      font-weight: 600;
+      font-size: 1.4rem;
+      position: relative;
+      padding: 10px 16px;
+      border-radius: 20px;
+      transition: all 0.3s ease;
+      display: inline-block;
+    }
+
+    .header-box .nav-links a::before {
+      content: attr(data-icon);
+      margin-right: 6px;
+    }
+
+    .header-box .nav-links a:hover {
+      background-color: rgba(255, 255, 255, 0.1);
+      color: #ffcccb;
+    }
+
+    .tiles {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 25px;
+      padding: 30px 10%;
+    }
+
+    .tile {
+      padding: 30px;
+      border-radius: 16px;
+      text-align: center;
+      color: #060606;
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+      box-shadow: 0 6px 12px rgba(0, 0, 0, 0.3);
+      cursor: pointer;
+      position: relative;
+      font-size: 1.3rem;
+      background: rgba(255, 255, 255, 0.85);
+    }
+
+    .tile:hover {
+      transform: translateY(-6px);
+      box-shadow: 0 12px 20px rgba(0, 0, 0, 0.4);
+    }
+
+    .tile h3 {
+      margin: 10px 0 5px;
+      font-size: 1.4rem;
+    }
+  </style>
+</head>
+<body>
+
+  <div class="header-box">
+    <div class="logo">CareConnect+</div>
+    <nav class="nav-links">
+      <a href="#" data-icon="🏠">Home</a>
+      <a href="#" data-icon="📅">Appointment</a>
+      <a href="#" data-icon="☎">Contact</a>
+      <a href="#" data-icon="ℹ">About Us</a>
+    </nav>
+  </div>
+
+  <section class="tiles">
+    <div class="tile" onclick="navigateTo('find-hospital.html')">
+      <h3>🏥 Find Hospital</h3>
+      <p>Locate nearby hospitals using GPS</p>
+    </div>
+    <div class="tile" onclick="navigateTo('my-doctors.html')">
+      <h3>👨‍⚕ My Doctors</h3>
+      <p>View your personal doctor team</p>
+    </div>
+    <div class="tile" onclick="navigateTo('appointments.html')">
+      <h3>📅 My Appointments</h3>
+      <p>Manage and schedule visits</p>
+    </div>
+    <div class="tile" onclick="navigateTo('medicine.html')">
+      <h3>💊 Pharmacy</h3>
+      <p>Order medicines easily</p>
+    </div>
+    <div class="tile" onclick="navigateTo('emergency.html')">
+      <h3>🚨 Emergency</h3>
+      <p>One-tap ambulance or ER call</p>
+    </div>
+    <div class="tile" onclick="navigateTo('record.html')">
+      <h3>📁 My Records</h3>
+      <p>Access test results securely</p>
+    </div>
+  </section>
+
+  <script>
+    function navigateTo(page) {
+      window.location.href = page;
+    }
+  </script>
+
+</body>
+</html>

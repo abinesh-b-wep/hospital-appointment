@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>PharmaQuick - Order Medicines</title>
+  <link href="https://fonts.googleapis.com/css2?family=Inter&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="medicine.css" />
+</head>
+<body>
+  <div class="container">
+    <h1><a href="#">PharmaQuick</a></h1>
+    <h2>Order Your Medicines</h2>
+
+    <!-- Order Form -->
+    <div class="input-container">
+      <input type="text" id="customerName" placeholder="Customer Name" />
+      <input type="text" id="medicineName" placeholder="Medicine Name" />
+      <input type="number" id="quantity" placeholder="Quantity" min="1" />
+      <input type="text" id="address" placeholder="Delivery Address" />
+    </div>
+
+    <!-- Submit Button -->
+    <button class="button" onclick="placeOrder()">Place Order</button>
+
+    <!-- Search -->
+    <input class="search" type="text" id="searchBar" onkeyup="searchOrders()" placeholder="Search by Name or Medicine" />
+
+    <!-- Order Table -->
+    <table class="table" id="orderTable">
+      <thead>
+        <tr>
+          <th>#</th>
+          <th>Customer</th>
+          <th>Medicine</th>
+          <th>Quantity</th>
+          <th>Address</th>
+        </tr>
+      </thead>
+      <tbody id="orderBody">
+        <!-- Orders will be inserted here -->
+      </tbody>
+    </table>
+  </div>
+
+  <script src="medicine.js"></script>
+</body>
+</html>
